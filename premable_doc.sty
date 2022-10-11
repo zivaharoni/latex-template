@@ -10,13 +10,13 @@
 
 \usepackage{hyperref}
 \usepackage{amssymb,amsthm}
-\usepackage[cmex10]{amsmath}
+\usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{psfrag}
-\usepackage{subfigure}
+% \usepackage{subfigure}
+\usepackage{subcaption}
 \usepackage{empheq}
 \usepackage{mathtools}
-\usepackage{standalone}
 \usepackage{import}
 \usepackage{color}
 \usepackage{tcolorbox}
@@ -24,13 +24,12 @@
 \usepackage{float}
 \usepackage{stfloats}
 \usepackage{lipsum}
-\usepackage{pdfpages}
 \usepackage{algorithm}
 \usepackage{algorithmic}
 \usepackage{csquotes}
 \newcommand{\algrule}[1][.2pt]{\par\vskip.5\baselineskip\hrule height #1\par\vskip.5\baselineskip}
 \usepackage{tcolorbox}
-\usepackage[margin=2.425cm]{geometry}
+\usepackage{geometry}
 % \usepackage{ntheorem}
 % \usepackage[margin=0.5in]{geometry}
 \usepackage{wrapfig}
@@ -66,18 +65,18 @@
 \newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 
 
-\newtheorem{lemma}{Lemma}
-\newtheorem*{problem*}{Problem statement}
-\newtheorem{theorem}{Theorem}
-\newtheorem{corollary}{Corollary}
-\theoremstyle{definition}
-\newtheorem{remark}{Remark}
-\newtheorem{example}{Example}
-\newtheorem{experiment}{Experiment}
-\newtheorem{assumption}{Assumption}
-\newtheorem{definition}{Definition}
-% \newtheorem{problem}{Problem}
-\newtheorem{idea}{Idea}
+% \newtheorem{lemma}{Lemma}
+% \newtheorem*{problem*}{Problem statement}
+% \newtheorem{theorem}{Theorem}
+% \newtheorem{corollary}{Corollary}
+% \theoremstyle{definition}
+% \newtheorem{remark}{Remark}
+% \newtheorem{example}{Example}
+% \newtheorem{experiment}{Experiment}
+% \newtheorem{assumption}{Assumption}
+% \newtheorem{definition}{Definition}
+% % \newtheorem{problem}{Problem}
+% \newtheorem{idea}{Idea}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -267,20 +266,27 @@
 
 \newacronym{cdf}{CDF}{cumulative distribution function}
 \newacronym{ce}{CE}{cross entropy}
+\newacronym{ddpg}{DDPG}{deep deterministic policy gradient}
+\newacronym{di}{DI}{directed information}
+\newacronym{dp}{DP}{dynamic programming}
 \newacronym{dv}{DV}{Donsker Vardhan}
 \newacronym{elbo}{ELBO}{evidence lower bound}
 \newacronym{eq}{eq.}{equation}
 \newacronym{fig}{fig.}{figure}
+\newacronym{fsc}{FSC}{finite state channel}
 \newacronym{hmm}{HMM}{hidden Markov model}
 \newacronym{iid}{i.i.d.}{independently identically distributed}
 \newacronym{kl}{KL}{Kullback Leibler}
 \newacronym{lstm}{LSTM}{long short-term memory}
+\newacronym{mdp}{MDP}{Markov decision process}
 \newacronym{ml}{ML}{machine learning}
 \newacronym{mlstm}{M-LSTM}{modified \myglsentry{lstm}}
 \newacronym{nn}{NN}{neural network}
 \newacronym{pdf}{PDF}{probability density function}
+\newacronym{pou}{POU}{policy optimization by unfolding}
 \newacronym{pmf}{PMF}{probability mass function}
 \newacronym{rnn}{RNN}{recurrent neural network}
+\newacronym{rl}{RL}{reinforcement learning}
 \newacronym{rv}{RV}{random variable}
 \newacronym{sgd}{SGD}{stochastic gradient descent}
 \newacronym{st}{s.t.}{such that}
