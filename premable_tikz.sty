@@ -3,6 +3,62 @@
 \usepackage{tikz}
 \usepackage{amssymb}
 \usetikzlibrary{arrows,shapes.geometric,decorations.pathmorphing,backgrounds,positioning,fit,calc}
+\usetikzlibrary{arrows,backgrounds,calc,decorations.pathreplacing,decorations.pathmorphing,decorations.footprints,fadings,fit,intersections,matrix,mindmap,shadows,decorations.text,patterns,plotmarks,positioning,shapes.geometric,spy,trees}
+\usepackage{pgfplots}
+\usepgflibrary{shapes}
+\usepackage{filecontents}
+\usepgfplotslibrary{fillbetween}
+
+
+
+\definecolor{darkgray176}{RGB}{176,176,176}
+\definecolor{dodgerblue8159255}{RGB}{8,159,255}
+\definecolor{mediumblue2742204}{RGB}{27,42,204}
+\definecolor{chocolate2267451}{RGB}{226,74,51}
+\definecolor{dimgray85}{RGB}{85,85,85}
+\definecolor{gainsboro229}{RGB}{229,229,229}
+\definecolor{darkorange25512714}{RGB}{255,127,14}
+\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{steelblue31119180}{RGB}{31,119,180}
+\definecolor{darkgreen31119180}{RGB}{90,150,0}
+
+
+
+\pgfplotsset{compat=1.9}
+\pgfplotsset{
+    lineplotstyle/.style={
+    width=\textwidth,
+    % height=2.75in,
+    % width=2.95in,
+    % height=2.75in,
+    %axis line style={white},
+    %tick align=outside,
+    %tick pos=left,
+    xminorgrids,
+    yminorgrids,
+    minor tick num=5,
+    x grid style={color=gainsboro229},
+    y grid style={color=gainsboro229},
+    xtick style={color=gainsboro229},
+    ytick style={color=gainsboro229},
+    xlabel style={color=dimgray85, rotate=0, align=center},
+    ylabel style={color=dimgray85, rotate=0, align=center},
+    x tick label style={color=dimgray85, font=\bfseries},
+    y tick label style={color=dimgray85, font=\bfseries},
+    legend style={font=\small},
+    legend cell align=left,
+    % legend style={at={(0.6,0.75)},anchor=south west, nodes={scale=0.85, transform shape}},
+    % legend pos=north east,
+    % ylabel style={align=center, font=\bfseries\boldmath},
+    % xlabel style={align=center, font=\bfseries\boldmath},
+    % x tick label style={font=\bfseries\boldmath},
+    % y tick label style={font=\bfseries\boldmath},
+    % scaled ticks=false,
+    % every axis plot/.append style={thick},
+    },
+}
+
+
 
 \tikzstyle{io} =    [node distance=1.5cm,
                     minimum width=0.5cm, 
@@ -40,7 +96,7 @@
 
 
 
-
+\newcommand{\scaleTikz}[2]{\resizebox{#1\textwidth}{!}{#2}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
