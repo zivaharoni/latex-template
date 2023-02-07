@@ -9,17 +9,16 @@
 \addbibresource{ref.bib}
 
 \usepackage{hyperref}
-\usepackage{amssymb}
-\usepackage{amsthm}
+\usepackage{amssymb,amsthm}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{psfrag}
 % \usepackage{subfigure}
+\usepackage{subcaption}
 \usepackage{empheq}
 \usepackage{mathtools}
 \usepackage{import}
 \usepackage{color}
-\usepackage[dvipsnames]{xcolor}
 \usepackage{tcolorbox}
 \usepackage{dsfont}
 \usepackage{float}
@@ -30,13 +29,11 @@
 \usepackage{csquotes}
 \newcommand{\algrule}[1][.2pt]{\par\vskip.5\baselineskip\hrule height #1\par\vskip.5\baselineskip}
 \usepackage{tcolorbox}
-\usepackage{geometry}
-\usepackage{todonotes}
-\usepackage{caption}
-\usepackage{subcaption}
-% \usepackage{ntheorem}
+% \usepackage{geometry}
+\usepackage{nth}
 % \usepackage[margin=0.5in]{geometry}
 \usepackage{wrapfig}
+\usepackage{stackengine} 
 
 \usepackage[acronym]{glossaries-extra}
 \setabbreviationstyle[acronym]{long-short}
@@ -59,6 +56,7 @@
 %%%%%%%%%%%%%% DEFINITIONS %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\parskip}{0.5em}
+\newcommand{\todo}[1]{\textcolor{red}{#1}}
 \DeclareMathOperator*{\argmax}{\arg\max}
 \DeclareMathOperator*{\argmin}{\arg\min}
 \DeclareMathOperator*{\nn}{\nonumber}
@@ -67,10 +65,8 @@
 \allowdisplaybreaks
 \newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 
-\makeatletter%
-\@ifclassloaded{beamer}%
-  {}%
-  {\newtheorem{lemma}{Lemma}
+
+\newtheorem{lemma}{Lemma}
 \newtheorem*{problem*}{Problem statement}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}
@@ -80,12 +76,12 @@
 \newtheorem{experiment}{Experiment}
 \newtheorem{assumption}{Assumption}
 \newtheorem{definition}{Definition}
-\newtheorem{problem}{Problem}
-\newtheorem{idea}{Idea}}%
-\makeatother%% \ifthenelse{}{0}{
+\newtheorem{reference}{Reference}
+\newtheorem{prop}{Proposition}
+\newtheorem{idea}{Idea}
+\newtheorem{op}{Objective}
+\newtheorem{question}{Question}
 
-\newcommand{\za}[1] {{ \color{violet} [#1]}}
-\newcommand{\rewrite}[1]{{\color{black!20!white}#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%% ALIASES %%%%%%%%%%%%%%%
@@ -256,34 +252,43 @@
   \mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
 }
 
-\usepackage{setspace}
-
-
-
-\newcommand{\opnorm}[1]{\left\lVert#1\right\rVert_{op}}
+% \usepackage{setspace}
 
 
 %%%%%% paper specific %%%%%%
-\newcommand{\rnn}[1][]{\mathcal{G}_{\mathsf{RNN}}^{#1}}
+\def\rnn{\mathcal{G}_{\mathsf{RNN}}}
+\def\fnn{\mathcal{G}_{\mathsf{NN}}}
+% \newcommand{\fnn}[][]{\mathcal{G}_{\mathsf{NN}}}
 
-\newcommand{\kl}[2]{\mathsf{D}_\mathsf{KL}\left(#1 \big\lVert #2\right)}
-\newcommand{\klemp}[3]{\mathsf{D}^{(n)}_\mathsf{KL}\left(#1 \big\lVert #2\right)}
-\newcommand{\klhat}[3]{\what{\mathsf{D}}_\mathsf{KL}^{(#3)}\left(#1 \big\lVert #2\right)}
-\newcommand{\ckl}[3]{\mathsf{D}_\mathsf{KL}\left(#1 \big\lVert #2 \Big\lvert #3\right)}
+\newcommand{\kl}[2]{\mathsf{D}_\mathsf{KL}\left(#1 \lVert #2\right)}
+\newcommand{\klhat}[3]{\what{\mathsf{D}}_\mathsf{KL}^{(#3)}\left(#1 \lVert #2\right)}
+\newcommand{\ckl}[3]{\mathsf{D}_\mathsf{KL}\left(#1 \lVert #2 \lvert #3\right)}
 \newcommand{\tv}[2]{\mathsf{TV}\left(#1, #2\right)}
 \newcommand{\ce}[2]{h_\mathsf{CE}\left(#1, #2\right)}
+
+\newcommand\checknodeop{\stackMath\mathbin{\stackinset{c}{0ex}{c}{0ex}{\ast}{\Box}}}
+\newcommand\bitnodeop{\stackMath\mathbin{\stackinset{c}{0ex}{c}{0ex}{\ast}{\bigcirc}}}
+\newcommand\hardnodeop{\mathsf{hard}}
+
+
+\newcommand{\celoss}[2]{ \f{L_\mathsf{ce}}{#1,#2}}
+\newcommand{\checknode}[2]{ \f{\checknodeop}{#1,#2}}
+\newcommand{\bitnode}[3]{\f{\bitnodeop}{#1,#2,#3}}
+\newcommand{\hardnode}[1]{\f{}{#1}}
 
 
 %%% constants %%%
 \def\nref{{\mathsf{N}_\mathsf{aux}}}
 
-
-\newacronym{aep}{AEP}{asymptotic equipartition property}
-\newacronym{ar}{AR}{auto-regressive}
+\newacronym{ai}{AI}{artificial intelligence}
+\newacronym{bdmc}{B-DMC}{binary-input discrete memoryless channel}
+\newacronym{ber}{BER}{bit error rate}
+\newacronym{bsc}{BSC}{binary symmetric channel}
 \newacronym{cdf}{CDF}{cumulative distribution function}
 \newacronym{ce}{CE}{cross entropy}
 \newacronym{ddpg}{DDPG}{deep deterministic policy gradient}
 \newacronym{di}{DI}{directed information}
+\newacronym{dmc}{DMC}{discrete memoryless channel}
 \newacronym{dp}{DP}{dynamic programming}
 \newacronym{dv}{DV}{Donsker Vardhan}
 \newacronym{elbo}{ELBO}{evidence lower bound}
@@ -293,20 +298,31 @@
 \newacronym{hmm}{HMM}{hidden Markov model}
 \newacronym{iid}{i.i.d.}{independently identically distributed}
 \newacronym{kl}{KL}{Kullback Leibler}
-\newacronym{lhs}{LHS}{left-hand-side}
 \newacronym{lstm}{LSTM}{long short-term memory}
+\newacronym{lhs}{LHS}{left-hand-side}
+\newacronym{lr}{LR}{likelihood ratio}
+\newacronym{llr}{LLR}{log \myglsentry{lr}}
 \newacronym{mdp}{MDP}{Markov decision process}
+\newacronym{mi}{MI}{mutual information}
+\newacronym{mine}{MINE}{mutual information neural estimator}
+\newacronym{dine}{DINE}{directed information neural estimator}
 \newacronym{ml}{ML}{machine learning}
+\newacronym{maxl}{MaxL}{maximum likelihood}
 \newacronym{mlstm}{M-LSTM}{modified \myglsentry{lstm}}
 \newacronym{nn}{NN}{neural network}
 \newacronym{pdf}{PDF}{probability density function}
 \newacronym{pou}{POU}{policy optimization by unfolding}
 \newacronym{pmf}{PMF}{probability mass function}
 \newacronym{rnn}{RNN}{recurrent neural network}
-\newacronym{rhs}{RHS}{right-hand-side}
 \newacronym{rl}{RL}{reinforcement learning}
+\newacronym{rhs}{RHS}{right-hand-side}
 \newacronym{rv}{RV}{random variable}
+\newacronym{siso}{SISO}{soft input soft output}
+\newacronym{sc}{SC}{successive cancellation}
+\newacronym{scd}{SC}{successive cancellation}
+\newacronym{nsc}{NSC}{neural \myglsentry{sc}}
 \newacronym{sgd}{SGD}{stochastic gradient descent}
+\newacronym{spc}{SPC}{single parity check}
 \newacronym{st}{s.t.}{such that}
 \newacronym{thm}{thm.}{theorem}
 \newacronym{tv}{TV}{total variation}
